@@ -7,7 +7,7 @@ import (
 )
 
 //我们在服务器启动后，就初始化一个userDao实例，
-//把它做成全局的变量，在需要和redis操作时，就直接使用即可
+//把它做成全局的变量，在需要和MySQL操作时，就直接使用即可
 var (
 	MyUserDao *UserDao
 )
@@ -59,7 +59,7 @@ func (this *UserDao) Register(user *message.User) (err error) {
 		err = ERROR_USER_EXISTS
 		return
 	}
-	//这时，说明id在redis还没有，则可以完成注册
+	//这时，说明id在MySQL还没有，则可以完成注册
 	//入库
 	sqlStr := `insert into user(userId,userPwd,userName)values(?,?,?)`
 	_, err = this.Db.Exec(sqlStr, user.UserId, user.UserPwd, user.UserName)
