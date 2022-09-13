@@ -12,7 +12,7 @@
 
 服务器得创建 名字叫 users 数据库，名字叫 user 的表，usr表结构为（usrId int, usrPwd string, userName string）
 
-#client
+# client
 
 客户端需要把连接服务端的 IP 地址和端口改为自己所要连接的服务器的ip地址和端口。
 
